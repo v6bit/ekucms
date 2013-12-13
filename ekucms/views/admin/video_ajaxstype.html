@@ -1,0 +1,14 @@
+<volist name="stype_list" id="stype">
+    <?php
+    $str = '';
+    foreach($mcidArr as $v)
+    {
+   		if ($stype['m_cid'] == $v)
+        {
+            $str = 'checked="checked"';
+            break;
+        }
+    }
+    ?>
+	<input type="checkbox" name="stype_mcids[]" {$str}  value="{$stype['m_cid']}"/>{$stype['m_name']}
+</volist>

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>多分类系统</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel='stylesheet' type='text/css' href='./views/css/admin_style.css'>
+<script language="JavaScript" charset="utf-8" type="text/javascript" src="./views/js/jquery.js"></script>
+<style>input{ height:25px;line-height:20px};</style>
+</head>
+<body>
+<form id="gxform" action="?s=Admin/Wei/seoUpdate" method="post" name="gxform">
+
+<table width="98%" border="0" cellpadding="4" cellspacing="1" class="table">
+<tr class="table_title">
+  <td colspan="2">影片SEO伪原创</td>
+</tr>
+ <tr class="tr">
+   <td rowspan="6" class="rt">影片标题：</td>
+   <td ><input name="con[seo_movie_title]" type="text" id="seo_movie_title" style="width:500px;" value="{$seo_movie_title}" /></td>
+ </tr>
+ <tr class="tr">
+   <td ><strong>变量说明</strong>：$movietitle，$sysname,$movietitle为影片名称，$sysname为网站名称</td>
+ </tr>
+ <tr class="tr">
+   <td ><strong>注意事项</strong>：当添加影片时选择了自定义标题，则此处设置针对相应影片无效</td>
+ </tr>
+ <tr class="tr">
+   <td ><strong>举例说明</strong>：$movietitle在线观看_$movietitle高清下载_$movietitle百度影音_$sysname</td>
+ </tr>
+ <tr class="tr">
+   <td ><strong>演示说明</strong>，假如影片名称 <strong>青春期</strong>，网站名称<strong>易酷CMS</strong></td>
+ </tr>
+ <tr class="tr">
+   <td ><strong>演示结果</strong>：青春期在线观看_青春期高清下载_青春期百度影音_易酷CMS</td>
+ </tr>
+ <tr class="tr">
+   <td width="12%" class="rt">影片关键字：</td>
+   <td width="88%" ><textarea name="con[seo_movie_keywords]" rows="5" id="seo_movie_keywords" style="width:500px;">{$seo_movie_keywords}</textarea>        可用变量：$movietitle，$sysname,$movietitle为影片名称，$sysname为网站名称<br /></td>
+</tr>
+ <tr class="tr">
+   <td class="rt">影片描述：</td>
+   <td ><textarea name="con[seo_movie_desc]" rows="5" id="seo_movie_desc" style="width:500px;">{$seo_movie_desc}</textarea>
+     可用变量：$movietitle，$sysname,$movietitle为影片名称，$sysname为网站名称</td>
+ </tr>  
+<tr class="tr">
+  <td align="left">&nbsp;</td>
+  <td align="left"><input class="bginput" type="submit" name="submit" value="  提交  " /></td>
+</tr>
+</table> 
+`</form>
+
+<include file="footer" />
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="{$keywords}">
+<meta name="description" content="{$description}">
+<title>{$webtitle}</title>
+<link rel="stylesheet" type="text/css" href="{$tplpath}pub.css"/>
+<link rel="stylesheet" type="text/css" href="{$tplpath}yiku.css"/>
+<script language="javascript">
+$(document).ready(function(){
+	$('#content').focus(function(){
+		if($('#content').val()=='分享您的看法吧，最多200个字。'){
+			$('#content').val('');
+		}
+	});
+	$('#content').blur(function(){
+		if($('#content').val()==''){
+			$('#content').val('分享您的看法吧，最多200个字。');
+		}
+	});	
+	$("#guestbook").submit( function () {
+		if($('#content').val().length>200){
+			alert('您输入的留言信息过长，请删减一些！');
+  			return false;
+		}
+		if($('#content').val()=='分享您的看法吧，最多200个字。'){
+			alert('请输入留言信息！');
+  			return false;
+		}		
+	}); 
+});
+</script>
+</head>
+<body>
+<include file="header" />
+
+<div class="wapper">
+    <div class="dq"><span>您现在所在的位置：</span>{$navtitle}</div>
+    
+    <div class="dq" style="height:auto;">
+    <form action="{$webpath}index.php?s=Guestbook/Insert" method="post" name="guestbook" id="guestbook">
+    	<table width="100%" border="0" cellpadding="5" cellspacing="1">
+        	<tr><td><strong>我也说两句</strong></td>
+       	    </tr>
+        	<tr>
+        	  <td><textarea style="width:100%;" id="content" name="content" rows="5" onfocus="if(this.value=='分享您的看法吧，最多200个字。'){this.value='';};this.select();" onblur="if(this.value==''){this.value='分享您的看法吧，最多200个字。';};" class="txt_in" maxlength="200"></textarea></td>
+       	  </tr>
+        	<tr>
+        	  <td><button type="submit" class="sub_btn" name="submit" id="submitCommBtn" ><span>发表留言</span></button></td>
+       	  </tr>
+        </table>
+    </form>
+    </div>
+    <div class="dq" style="height:auto;">
+    <gxfor name="list_guestbook" id="guestbook">
+  <table width="100%" border="0" cellpadding="5" cellspacing="1">
+    <tr>
+      <td style="background-color:#EFEFEF"><span class="time">第 {$guestbook.floor} 楼<strong>的{$guestbook.username|htmlspecialchars|remove_xss}</strong> 在 {$guestbook.addtime|get_color_date='Y-m-d H:i',###} 写道：</span></td>
+    </tr>
+    <tr>
+      <td>{$guestbook.content|htmlspecialchars|remove_xss}</td>
+    </tr>
+    <tr>
+      <td>站长回复：{$guestbook.recontent}</td>
+    </tr>
+  </table>
+    </gxfor>
+    
+    
+    <gt name="count" value="10"><div class="pages">{$pages}</div></gt>
+  </div>
+    
+    
+<script type="text/javascript" src="{$webpath}views/js/jquery.js"></script>
+<script type="text/javascript" src="{$webpath}views/js/system.js"></script>
+<script type="text/javascript" src="{$tplpath}yiku.js"></script>
+<include file="footer" />
+</div>
+</body>
+</html>

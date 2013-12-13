@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>播放器设置</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel='stylesheet' type='text/css' href='./views/css/admin_style.css'>
+<script language="JavaScript" charset="utf-8" type="text/javascript" src="./views/js/jquery.js"></script>
+<style type="text/css">
+.abc {
+	color: #F00;
+}
+</style>
+</head>
+<body>
+<table width="98%" border="0" cellpadding="4" cellspacing="1" class="table">
+<form action="?s=Admin/Config/Updateplayer" method="post" id="gxform">
+ <tr class="table_title">
+  <td colspan="2">快播与百度影音播放器参数设置</td>
+</tr>                   
+<tr class="ji">
+  <td width="14%" class="left">播放器宽度</td>
+  <td width="86%"><input type="text" name="con[player_width]" size="10" maxlength="4" value="{$player_width}" class="ct"> *</td>
+</tr>
+<tr class="tr">
+  <td class="left">播放器高度</td>
+  <td><input type="text" name="con[player_height]" size="10" maxlength="4" value="{$player_height}" class="ct"> *</td>
+</tr>
+<tr class="ji">
+  <td class="left">缓冲广告最少时间</td>
+  <td><input type="text" name="con[player_time]" size="10" maxlength="2" value="{$player_time}" title="至少需要显示几秒,防止缓冲速度较快下广告没有显示完就播放了" class="ct"> *</td>
+</tr>
+<tr class="ji">
+  <td class="left">百度影音安装下载地址</td>
+  <td><input type="text" name="con[player_down]" size="45" maxlength="100" value="{$player_down}"> *</td>
+</tr>
+<tr class="tr">
+  <td class="left">快播安装下载地址</td>
+  <td><input type="text" name="con[qvod_player_down]" size="45" maxlength="100" value="{$qvod_player_down}"></td>
+</tr>
+<tr class="tr">
+  <td class="left">缓冲/暂停广告地址</td>
+  <td><input type="text" name="con[player_buffer]" size="45" maxlength="100" value="{$player_buffer}"> *</td>
+</tr>
+<tr class="table_title">
+  <td colspan="2">CKPlayer播放器相关设置</td>
+</tr>
+<tr class="tr">
+  <td class="left">CKPlayer 播放器URL</td>
+  <td><input type="text" name="con[player_web_url]" size="45" maxlength="100" value="{$web_url}" /> 
+    <span class="abc">与网站地址一致，请不要修改 </span></td>
+</tr>
+<tr class="tr">
+  <td class="left">前置广告地址</td>
+  <td><input type="text" name="con[ckplayer_f_ad]" size="65" maxlength="300" value="{$ckplayer_f_ad}" />
+    <span class="abc">前置广告，swf/图片/视频，多个用竖线隔开，图片和视频要加链接地址</span></td>
+</tr>
+<tr class="tr">
+  <td class="left">前置广告链接</td>
+  <td><input type="text" name="con[ckplayer_f_ad_l]" size="45" maxlength="100" value="{$ckplayer_f_ad_l}" /></td>
+</tr>
+<tr class="tr">
+  <td class="left">前置广告秒数</td>
+  <td><input type="text" name="con[ckplayer_f_ad_s]" size="20" maxlength="100" value="{$ckplayer_f_ad_s}" /></td>
+</tr>
+<tr class="tr">
+  <td class="left">暂停广告地址</td>
+  <td><input type="text" name="con[ckplayer_f_p]" size="45" maxlength="100" value="{$ckplayer_f_p}" /></td>
+</tr>
+<tr class="tr">
+  <td class="left">暂停广告链接</td>
+  <td><input type="text" name="con[ckplayer_f_p_l]" size="45" maxlength="100" value="{$ckplayer_f_p_l}" /></td>
+</tr>
+<tr class="tr">
+  <td class="left">初始图片地址</td>
+  <td><input type="text" name="con[ckplayer_first_pic]" size="45" maxlength="100" value="{$ckplayer_first_pic}" />
+    <span class="abc">初始图片地址，建议尺寸与播放器大小一致效果更好</span></td>
+</tr>
+<tr class="tr">
+  <td class="left">缓冲广告</td>
+  <td><input type="text" name="con[ckplayer_buffer_ad]" size="45" maxlength="100" value="{$ckplayer_buffer_ad}" />
+    <span class="abc">缓冲广告，只能放一个，swf格式</span></td>
+</tr>
+<tr class="tr">
+  <td colspan="2">
+    <input class="bginput" type="submit" name="submit" value=" 提交 ">
+    <input class="bginput" type="reset" name="Input" value="重置" >
+    </td>
+</tr>
+</form>
+</table>
+<include file="footer" />
+</body>
+</html>

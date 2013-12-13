@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>多分类系统</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel='stylesheet' type='text/css' href='./views/css/admin_style.css'>
+<script language="JavaScript" charset="utf-8" type="text/javascript" src="./views/js/jquery.js"></script>
+<style>input{ height:25px;line-height:20px};</style>
+</head>
+<body>
+<table width="98%" border="0" cellpadding="4" cellspacing="1" class="table">
+<td width="100"><gt name="id" value="0">
+<form id="gxform" name="update" action="?s=Admin/Wei/UpdateLink" method="post">
+<input type="hidden" name="id" value="{$id}">
+<else />
+<form id="gxform" action="?s=Admin/Wei/InsertLink" method="post" name="gxform">
+</gt>
+<tr class="table_title">
+  <td colspan="2">{$tpltitle}内链关键字</td>
+</tr>
+ <tr class="tr">
+   <td class="rt">关键字名称：</td>
+   <td ><input name="name" type="text" id="name" style="width:200px" value="{$name}" maxlength="200"> 
+   * 注意：关键字不能重复</td>
+</tr>  
+<tr class="tr">
+  <td class="rt">对应链接地址：</td>
+  <td ><input name="link" type="text" id="link" style="width:345px;line-height:18px;"  value="{$link}">
+    *</td>
+</tr>
+<tr class="tr">
+  <td class="rt">打开方式：</td>
+  <td >
+    <select name="target" id="target">
+    	<option value="_target"  <if condition="$target eq '_balnk'">selected="selected" </if>>新窗口</option>
+    	<option value="_self" <if condition="$target eq '_self'">selected="selected" </if>>本窗口</option>
+    </select>
+*</td>
+</tr>
+
+<tr class="tr">
+  <td colspan="2"><input class="bginput" type="submit" name="submit" value="提交"></td>
+</tr>
+</form>
+</table>
+<include file="footer" />
+</body>
+</html>

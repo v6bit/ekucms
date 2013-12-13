@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>首页手工</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel='stylesheet' type='text/css' href='./views/css/admin_style.css'>
+
+<script language="JavaScript" charset="utf-8" type="text/javascript" src="./views/js/jquery.js"></script>
+
+</head>
+
+<script>
+
+function checkAdd()
+
+{
+
+	if (parseInt(document.form1.cid.value) == 0)
+
+	{
+
+		alert('请选择分类');
+
+		document.form1.cid.focus();
+
+		return false;
+
+	}
+
+	return true;
+
+}
+
+</script>
+
+<body>
+
+<if condition="($array[id] gt 0)">
+
+    <form id="form1" name="form1" action="?s=Admin/Self/TypeUpdate" method="post">
+
+    <input type="hidden" name="id" value="{$array[id]}">
+
+<else />
+
+    <form id="form1" action="?s=Admin/Self/TypeInsert" method="post" name="form1">
+
+</if>
+
+
+
+  <table width="100%" border="0" cellspacing="1" cellpadding="3" class="table">
+
+    <tr class="list_head ct">
+
+      <td colspan="2" style="text-align:left;">&nbsp;&nbsp;&nbsp;&nbsp;添加手工分类 
+        <input type="hidden" name="id" value="{$array[id]}"></td>
+
+    </tr>
+
+    <tr class="tr">
+
+      <td align="center">所属分类{$array[cid]}</td>
+
+      <td><select name="fid" id="fid">
+
+        <option value="0">分 类</option>
+
+        
+
+        <volist name="list" id="gxcms">
+                <option value="{$gxcms.id}" <eq name="gxcms.id" value="$array[fid]">selected</eq> >{$gxcms.name}</option>
+        </volist>
+
+
+
+      </select></td>
+
+    </tr>
+
+    <tr class="tr">
+
+      <td width="13%" align="center">分类名称</td>
+
+      <td width="87%"><input name="name" type="text" id="title" size="60" value="{$array[name]}" /></td>
+
+    </tr>
+
+    <tr class="tr">
+
+      <td align="center">&nbsp;</td>
+
+      <td><input type="submit" name="button" id="button" value="  提 交  " onclick="return checkAdd();" /></td>
+
+    </tr>
+
+  </table>
+
+</form>
+
+<include file="footer" />
+
+</body>
+
+</html>

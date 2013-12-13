@@ -1,0 +1,7 @@
+<gxcms name="video" cid="'.$_GET['cid'].'" limit="'.$_GET['limit'].'" order="stars desc,hits desc"> 
+                        <li>
+                            <a href="{$video.readurl}" target="_blank" class="img"><span><if condition="$video.serial gt 0">更新至{$video.serial}<else />完结</if></span><i></i><img src="{$video.picurl}" /></a>
+                            <a href="{$video.readurl}" target="_blank" class="title">{$video.title|get_replace_html=0,8}</a>
+                            <p class="title1">{$video.actor|get_replace_html=0,10|get_actor_url}</p>
+                        </li>
+</gxcms>

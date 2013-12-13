@@ -1,0 +1,528 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>排行榜-易酷CMS</title>
+<meta name="keywords" content="EKUCMS,易酷CMS,易酷免费影视系统">
+<meta name="description" content="欢迎使用易酷免费影视系统,通过该程序可以在短时间内建立一个强大的视频站点。">
+<link rel="stylesheet" type="text/css" href="/ekucms/template/default/pub.css"/>
+<link rel="stylesheet" type="text/css" href="/ekucms/template/default/yiku.css"/>
+<style>
+.top_table{ margin-top:20px;}
+.top_table td{padding:6px; background-color:#FFFFFF; font-size:14px; font-family:Verdana, 微软雅黑}
+.top_table th{padding:6px; background-color:#E8E8E8; font-size:20px; font-family:"微软雅黑"}
+.top_table a{color:#33C;}
+</style>
+<script language="javascript">var SitePath='/ekucms/';var SiteMid='';var SiteCid='';var SiteId='';</script>
+</head>
+
+<body>
+<script language="javascript">var SitePath='/ekucms/';var SiteMid='';var SiteCid='';var SiteId='';</script>
+<!--头部 开始-->
+<div class="top">
+	<a href="/ekucms/" class="logo"></a>
+    <!--搜索 开始-->
+	<div class="ss">
+    	<div class="ss1">
+        	<div id="searchSuggestContent" class="ss1-1"></div>
+        	<form id="searchForm" name="searchForm" method="post" action="http://222.199.184.25/index.php?s=video/search/.html">
+        	<p>
+                <img src="/ekucms/template/default/images/tb1.jpg" />
+                <input id="wd" name="wd"  autocomplete="off"type="text" 请输入关键字 />
+            </p>
+            <a href="javascript:void(0);" onclick="document.getElementById('searchForm').submit();"></a>
+            <input type="hidden" name="__hash__" value="08f5e947da233787a6761eeb2b9aaf8a" /></form>
+        </div>
+        <div class="ss2">
+            <a href="/?s=video/detail/id/935.html" target="_blank">应召女郎1988</a><a href="/ekucms/index.php?s=video/search/wd/%E7%A5%9E%E6%8E%A2%E9%98%BF%E8%92%99" target="_blank">神探阿蒙</a><a href="/ekucms/index.php?s=video/search/wd/%E5%AE%89%E5%A6%AE%E6%97%A5%E8%AE%B0" target="_blank">安妮日记</a><a href="/ekucms/index.php?s=video/search/wd/%E4%B8%80%E9%AA%91%E5%BD%93%E5%8D%83" target="_blank">一骑当千</a><a href="/ekucms/index.php?s=video/search/wd/%E8%A2%AB%E8%A7%A3%E6%94%BE%E7%9A%84%E8%BF%AA%E4%BA%9A%E6%88%88" target="_blank">被解放的迪亚戈</a>        </div>
+    </div>
+    <!--搜索 结束-->
+    <a href="/index.php?s=top10" class="ph"></a>
+    <div class="top1">
+    	<a href="javascript:void(0);" id="login_btn" style="display:none;">登录</a>|<a href="javascript:void(0);" id="reg_btn" style="display:none;">注册</a>
+        <a href="/index.php?s=Guestbook" style="color:#F00">我要求片</a>|
+        <a href="javascript:void(0);" class="top1-1" id="play_old_list_a" onblur="this.blur();">观看记录</a>
+        
+    	<!--观看记录 开始-->
+        <div class="jilu" id="play_old_list">
+        	<span class="jilu1"></span>
+            <div class="jilu3" id="play_old_list_content">
+                
+                <div class="jilu1-3"><a href="#" class="qk">全部清空</a></div>
+            </div>
+            <span class="jilu2"></span>
+        </div>
+        <!--观看记录 结束-->
+        
+    </div>
+</div>
+<!--头部 结束-->
+<!--导航 开始-->
+<div class="nav">
+	<div class="nav1">
+		<div class="nav1-1">
+            <a href="/ekucms/" >首页</a><span></span>
+            
+            <a onfocus="this.blur();" href="/ekucms/?s=video/lists/id/1.html" >电影</a><span></span><a onfocus="this.blur();" href="/ekucms/?s=video/lists/id/2.html" >电视剧</a><span></span><a onfocus="this.blur();" href="/ekucms/?s=video/lists/id/3.html" >动漫</a><span></span><a onfocus="this.blur();" href="/ekucms/?s=video/lists/id/4.html" >综艺</a><span></span><a onfocus="this.blur();" href="/ekucms/?s=video/lists/id/6.html" >纪录片</a><span></span><a onfocus="this.blur();" href="/ekucms/?s=video/lists/id/5.html" >体育</a><span></span>            <a href="http://222.199.184.25/index.php?s=Special/lists/.html">专题</a>
+            <a href="/index.php?s=tv">直播</a>
+		</div>
+        <p class="nav1-2">
+        
+        <a href="http://www.keatv.com/detail/xijupian/xiyoujiangmopian.html"target="_blank" style="color:">精选专题</a><a href="http://www.keatv.com/detail/xijupian/renzaijiongtuzhitaijiong.html"target="_blank" style="color:#FFFF00">周星驰电影专题</a>    
+            
+        </p>
+	</div>
+</div>
+<!--导航 结束-->
+
+<!--wapper 开始-->
+<div class="wapper">
+
+<div class="top_table">
+          <table width="960" border="0" align="center" cellpadding="5" cellspacing="1" style="background-color:#CCC;">
+            <tr>
+              <th colspan="5">电影总人气排行榜</th>
+            </tr>
+            <tr>
+              <td align="center">序号</td>
+              <td>电影名称</td>
+              <td align="center">点击数</td>
+              <td align="center">网友评分</td>
+              <td class="nobrd">更新日期</td>
+            </tr>
+            <tr>
+                <td align="center">1</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/1739.html" target="_blank">[BYRBT] 大宋提刑官</a></td>
+                <td align="center">244</td>
+                <td align="center" class="score">0.0</td>
+                <td><font color="white">2013-07-08</font></td>
+              </tr>
+              <tr>
+                <td align="center">2</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/37.html" target="_blank">年满21</a></td>
+                <td align="center">98</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-27</td>
+              </tr>
+              <tr>
+                <td align="center">3</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/1740.html" target="_blank">assault on wall st</a></td>
+                <td align="center">58</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-07-05</td>
+              </tr>
+              <tr>
+                <td align="center">4</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/1733.html" target="_blank">justtracker_notrac</a></td>
+                <td align="center">37</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-07-05</td>
+              </tr>
+              <tr>
+                <td align="center">5</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/60.html" target="_blank">宝岛鱼很大</a></td>
+                <td align="center">2</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-04-01</td>
+              </tr>
+              <tr>
+                <td align="center">6</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/191.html" target="_blank">杀人理论</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-31</td>
+              </tr>
+              <tr>
+                <td align="center">7</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/103.html" target="_blank">血邻</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-27</td>
+              </tr>
+              <tr>
+                <td align="center">8</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/101.html" target="_blank">切除/开膛少女的异</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-27</td>
+              </tr>
+              <tr>
+                <td align="center">9</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/46.html" target="_blank">杀手旅馆</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-25</td>
+              </tr>
+              <tr>
+                <td align="center">10</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/45.html" target="_blank">惊魂之夜</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-25</td>
+              </tr>
+              <td colspan="5" class="line">&nbsp;
+                  </tr>          </table>
+        </div><div class="top_table">
+          <table width="960" border="0" align="center" cellpadding="5" cellspacing="1" style="background-color:#CCC;">
+            <tr>
+              <th colspan="5">电视剧总人气排行榜</th>
+            </tr>
+            <tr>
+              <td align="center">序号</td>
+              <td>电影名称</td>
+              <td align="center">点击数</td>
+              <td align="center">网友评分</td>
+              <td class="nobrd">更新日期</td>
+            </tr>
+            <tr>
+                <td align="center">1</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/1.html" target="_blank">童话镇第二季</a></td>
+                <td align="center">211</td>
+                <td align="center" class="score">2.0</td>
+                <td>2013-03-25</td>
+              </tr>
+              <tr>
+                <td align="center">2</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/86.html" target="_blank">可能爱过你</a></td>
+                <td align="center">30</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-07-05</td>
+              </tr>
+              <tr>
+                <td align="center">3</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/133.html" target="_blank">嗜血法医第1季</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-31</td>
+              </tr>
+              <tr>
+                <td align="center">4</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/132.html" target="_blank">识骨寻踪第3季</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-31</td>
+              </tr>
+              <tr>
+                <td align="center">5</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/128.html" target="_blank">人人都恨克里斯</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-31</td>
+              </tr>
+              <tr>
+                <td align="center">6</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/77.html" target="_blank">美国之声第四季</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-27</td>
+              </tr>
+              <tr>
+                <td align="center">7</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/76.html" target="_blank">青春密语 第五季</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-27</td>
+              </tr>
+              <tr>
+                <td align="center">8</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/75.html" target="_blank">家族风云/新朱门恩</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-27</td>
+              </tr>
+              <tr>
+                <td align="center">9</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/68.html" target="_blank">无耻之徒第三季</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-27</td>
+              </tr>
+              <tr>
+                <td align="center">10</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/54.html" target="_blank">复生第一季</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-25</td>
+              </tr>
+              <td colspan="5" class="line">&nbsp;
+                  </tr>          </table>
+        </div><div class="top_table">
+          <table width="960" border="0" align="center" cellpadding="5" cellspacing="1" style="background-color:#CCC;">
+            <tr>
+              <th colspan="5">动漫总人气排行榜</th>
+            </tr>
+            <tr>
+              <td align="center">序号</td>
+              <td>电影名称</td>
+              <td align="center">点击数</td>
+              <td align="center">网友评分</td>
+              <td class="nobrd">更新日期</td>
+            </tr>
+            <tr>
+                <td align="center">1</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/12.html" target="_blank">全职猎人新TV/全职</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-25</td>
+              </tr>
+              <tr>
+                <td align="center">2</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/21.html" target="_blank">迷你偶像/小小偶像</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-27</td>
+              </tr>
+              <tr>
+                <td align="center">3</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/22.html" target="_blank">闪乱神乐</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-25</td>
+              </tr>
+              <tr>
+                <td align="center">4</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/26.html" target="_blank">伊克西翁传说</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-04-01</td>
+              </tr>
+              <tr>
+                <td align="center">5</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/31.html" target="_blank">LOVE LIVE!</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-04-01</td>
+              </tr>
+              <tr>
+                <td align="center">6</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/40.html" target="_blank">少年骇客：全面进化</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-25</td>
+              </tr>
+              <tr>
+                <td align="center">7</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/41.html" target="_blank">少年正义联盟第二季</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-25</td>
+              </tr>
+              <tr>
+                <td align="center">8</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/82.html" target="_blank">火影忍者小李外传</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-27</td>
+              </tr>
+              <tr>
+                <td align="center">9</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/99.html" target="_blank">战勇Senyu</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-27</td>
+              </tr>
+              <tr>
+                <td align="center">10</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/105.html" target="_blank">龙-RYO</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-27</td>
+              </tr>
+              <td colspan="5" class="line">&nbsp;
+                  </tr>          </table>
+        </div><div class="top_table">
+          <table width="960" border="0" align="center" cellpadding="5" cellspacing="1" style="background-color:#CCC;">
+            <tr>
+              <th colspan="5">综艺总人气排行榜</th>
+            </tr>
+            <tr>
+              <td align="center">序号</td>
+              <td>电影名称</td>
+              <td align="center">点击数</td>
+              <td align="center">网友评分</td>
+              <td class="nobrd">更新日期</td>
+            </tr>
+            <tr>
+                <td align="center">1</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/6.html" target="_blank">音乐银行</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-25</td>
+              </tr>
+              <tr>
+                <td align="center">2</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/7.html" target="_blank">生死时速</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-25</td>
+              </tr>
+              <tr>
+                <td align="center">3</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/28.html" target="_blank">环宇大战略</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-04-01</td>
+              </tr>
+              <tr>
+                <td align="center">4</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/29.html" target="_blank">世纪大讲堂</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-04-01</td>
+              </tr>
+              <tr>
+                <td align="center">5</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/32.html" target="_blank">美女私房菜</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-25</td>
+              </tr>
+              <tr>
+                <td align="center">6</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/35.html" target="_blank">帕克</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-25</td>
+              </tr>
+              <tr>
+                <td align="center">7</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/42.html" target="_blank">我爱记歌词</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-04-01</td>
+              </tr>
+              <tr>
+                <td align="center">8</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/51.html" target="_blank">决战一分钟</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-04-01</td>
+              </tr>
+              <tr>
+                <td align="center">9</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/52.html" target="_blank">街坊厨神食四方</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-04-01</td>
+              </tr>
+              <tr>
+                <td align="center">10</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/53.html" target="_blank">劲歌金曲</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-25</td>
+              </tr>
+              <td colspan="5" class="line">&nbsp;
+                  </tr>          </table>
+        </div><div class="top_table">
+          <table width="960" border="0" align="center" cellpadding="5" cellspacing="1" style="background-color:#CCC;">
+            <tr>
+              <th colspan="5">纪录片总人气排行榜</th>
+            </tr>
+            <tr>
+              <td align="center">序号</td>
+              <td>电影名称</td>
+              <td align="center">点击数</td>
+              <td align="center">网友评分</td>
+              <td class="nobrd">更新日期</td>
+            </tr>
+            <tr>
+                <td align="center">1</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/139.html" target="_blank">聚焦宫崎骏-和“波</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-31</td>
+              </tr>
+              <tr>
+                <td align="center">2</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/140.html" target="_blank">国家地理超级搬运家</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-31</td>
+              </tr>
+              <tr>
+                <td align="center">3</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/142.html" target="_blank">国产世纪大讲堂--德</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-31</td>
+              </tr>
+              <tr>
+                <td align="center">4</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/143.html" target="_blank">国产口号见证历史第</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-31</td>
+              </tr>
+              <tr>
+                <td align="center">5</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/144.html" target="_blank">国产锵锵三人行--印</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-31</td>
+              </tr>
+              <tr>
+                <td align="center">6</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/146.html" target="_blank">文涛拍案--“果敢王</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-31</td>
+              </tr>
+              <tr>
+                <td align="center">7</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/147.html" target="_blank">走读大中华--战火中</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-31</td>
+              </tr>
+              <tr>
+                <td align="center">8</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/149.html" target="_blank">世纪大讲堂解放战争</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-31</td>
+              </tr>
+              <tr>
+                <td align="center">9</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/150.html" target="_blank">财经正前方-G20匹兹</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-31</td>
+              </tr>
+              <tr>
+                <td align="center">10</td>
+                <td class="name"><a href="/ekucms/?s=video/detail/id/151.html" target="_blank">我的中国心冯如：中</a></td>
+                <td align="center">0</td>
+                <td align="center" class="score">0.0</td>
+                <td>2013-03-31</td>
+              </tr>
+              <td colspan="5" class="line">&nbsp;
+                  </tr>          </table>
+        </div><div class="top_table">
+          <table width="960" border="0" align="center" cellpadding="5" cellspacing="1" style="background-color:#CCC;">
+            <tr>
+              <th colspan="5">体育总人气排行榜</th>
+            </tr>
+            <tr>
+              <td align="center">序号</td>
+              <td>电影名称</td>
+              <td align="center">点击数</td>
+              <td align="center">网友评分</td>
+              <td class="nobrd">更新日期</td>
+            </tr>
+                      </table>
+        </div>    
+<script type="text/javascript" src="/ekucms/views/js/jquery.js"></script>
+<script type="text/javascript" src="/ekucms/views/js/system.js"></script>
+<script type="text/javascript" src="/ekucms/template/default/yiku.js"></script>
+   <script type="text/javascript" src="/ekucms/temp/Banner/duilian_quanzhan.js" charset="utf-8"></script>   <script type="text/javascript" src="/ekucms/temp/Banner/fumeiti_quanzhan.js" charset="utf-8"></script>    <!--版权 开始-->
+    <div class="bq">
+   		本网站提供的最新电视剧和电影资源均系收集于各大视频网站，本网站只提供web页面服务，并不提供影片资源存储，也不参与录制、上传。        <p style="height:8px;"></p>
+
+        Copyright © 2007 - 2011 <a href="http://222.199.184.25/">易酷CMS</a> Some Rights Reserved  <script language="javascript" type="text/javascript" src="http://js.users.51.la/15600100.js"></script> <a href="/ekucms/?s=map/lists/id/baidu/limit/500.xml">sitemap</a> <a href="/ekucms/?s=map/lists/id/google/limit/500.xml">sitemap</a><br />
+        <span style="display:none;"><script language="javascript" type="text/javascript" src="http://js.users.51.la/15665491.js"></script></span>
+    </div>
+    <!--版权 结束-->
+</div>
+</body>
+</html>

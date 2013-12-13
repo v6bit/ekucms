@@ -1,0 +1,1 @@
+document.write("<a href=\"http://www.v6player.org/forum/forum.php/\" target=\"_blank\"><img src=\"/images/fj.jpg\" width=\"960\" height=\"90\" /></a>");

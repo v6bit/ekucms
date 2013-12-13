@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$webtitle}</title>
+<meta name="keywords" content="{$ckeywords}{$keywords}">
+<meta name="description" content="{$cdescription}{$description}">
+<link rel="stylesheet" type="text/css" href="{$tplpath}pub.css"/>
+<link rel="stylesheet" type="text/css" href="{$tplpath}yiku.css"/>
+<style>
+.top_table{ margin-top:20px;}
+.top_table td{padding:6px; background-color:#FFFFFF; font-size:14px; font-family:Verdana, 微软雅黑}
+.top_table th{padding:6px; background-color:#E8E8E8; font-size:20px; font-family:"微软雅黑"}
+.top_table a{color:#33C;}
+</style>
+<script language="javascript">var SitePath='{$webpath}';var SiteMid='{$mid}';var SiteCid='{$cid}';var SiteId='{$id}';</script>
+</head>
+
+<body>
+<include file="header" />
+<!--wapper 开始-->
+<div class="wapper">
+
+<gxcms name="menu"><eq name="menu.mid" value="1">   
+        <div class="top_table">
+          <table width="960" border="0" align="center" cellpadding="5" cellspacing="1" style="background-color:#CCC;">
+            <tr>
+              <th colspan="5">{:get_channel_name($menu['id'])}总人气排行榜</th>
+            </tr>
+            <tr>
+              <td align="center">序号</td>
+              <td>电影名称</td>
+              <td align="center">点击数</td>
+              <td align="center">网友评分</td>
+              <td class="nobrd">更新日期</td>
+            </tr>
+            <gxcms name="video" cid="'.$menu['id'].'" limit="10" order="hits desc">
+              <tr>
+                <td align="center">{$i}</td>
+                <td class="name"><a href="{$video.readurl}" target="_blank">{$video.title|get_replace_html=0,9}</a></td>
+                <td align="center">{$video.hits|number_format}</td>
+                <td align="center" class="score">{$video.score}</td>
+                <td>{$video.addtime|get_color_date='Y-m-d',###}</td>
+              </tr>
+              <if condition="$i neq 50">
+                <if condition="$i%10 eq 0">
+                    <td colspan="5" class="line">&nbsp;
+                  </tr>
+                </if>
+              </if>
+            </gxcms>
+          </table>
+        </div>
+</eq></gxcms>    
+<script type="text/javascript" src="{$webpath}views/js/jquery.js"></script>
+<script type="text/javascript" src="{$webpath}views/js/system.js"></script>
+<script type="text/javascript" src="{$tplpath}yiku.js"></script>
+<include file="footer" />
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$webtitle}</title>
+<meta name="keywords" content="{$ckeywords}{$keywords}">
+<meta name="description" content="{$cdescription}{$description}">
+<include file="system" />
+<link rel="stylesheet" type="text/css" href="{$tplpath}pub.css"/>
+<link rel="stylesheet" type="text/css" href="{$tplpath}yiku.css"/>
+</head>
+<body>
+<include file="header" />
+
+<div class="wapper">
+
+
+	<!--列表 开始-->
+     <div class="special">
+    	<h1><span>专题列表</span></h1>
+        <ul class="sp-1">
+        <gxlist name="special" limit="30" order="addtime">
+        	<li>
+            	<a href="{$special.readurl}" target="_blank" class="img"><span>{$special.title}</span><i></i><img src="{$special.logo}" /></a>
+            </li>
+       </gxlist>   
+          
+        </ul>
+    </div>
+
+
+
+
+<include file="footer" />
+</div>
+</body>
+</html>

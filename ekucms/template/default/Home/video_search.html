@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="{$keywords}">
+<meta name="description" content="{$description}">
+<title>{$webtitle}</title>
+<link rel="stylesheet" type="text/css" href="{$tplpath}pub.css"/>
+<link rel="stylesheet" type="text/css" href="{$tplpath}yiku.css"/>
+<script type="text/javascript" src="js/tab.js"></script>
+</head>
+
+<body>
+<include file="header" />
+
+<!--wapper 开始-->
+<div class="wapper">
+	<!--列表 开始-->
+    <div class="list">
+   		<!--左边 开始-->
+        <div class="left1">
+            <!--最近更新电视剧 开始-->
+            <div class="right1 left1-1">
+            <div class="bg">
+            	<h1><span>最近更新{$cname}</span></h1>
+                <!--热榜 开始-->
+                <ul class="ph2">
+                <gxcms name="video" cid="'.$cid.'" limit="10" order="addtime desc">
+                    <li><span <if condition="$i lt 4"> class="ph1-1"<else />class="ph1-2"</if>>{$i}</span><a href="{$video.readurl}" target="_blank">{$video.title}</a><span>03-02</span></li>
+                </gxcms>
+                </ul>
+                <!--热榜 结束-->
+            </div>
+            </div>
+            <!--最近更新电视剧 结束-->
+            <!--电视剧热播榜 开始-->
+            <div class="right1 left1-1">
+            <div class="bg">
+            	<h1><span>{$cname}热播榜</span></h1>
+                <!--热榜 开始-->
+                <ul class="ph2">
+                <gxcms name="video" cid="'.$cid.'" limit="10" order="addtime desc">
+                    <li><span <if condition="$i lt 4"> class="ph1-1"<else />class="ph1-2"</if>>{$i}</span><a href="{$video.readurl}" target="_blank">{$video.title}</a><span>{$video.hits}</span></li>
+                </gxcms>
+                </ul>
+                <!--热榜 结束-->
+            </div>
+            </div>
+            <!--电视剧热播榜 结束-->
+            <!--广告 开始-->
+            <div class="banner1">
+            {:get_cms_ads('list_250_250')}
+            </div>
+            <!--广告 结束-->
+        </div>
+        <!--左边 结束-->
+        <!--右边 开始-->
+        <div class="right2">
+            <div class="right2-1">
+            	<span class="h1">{$cname}</span><img src="{$tplpath}images/xian1.jpg" />
+                <!--检索条件 开始-->
+                <div class="right2-2">
+                	<span> 共找到<strong> {$count}</strong> 条与 <strong>"{$keyword}</strong>" 的相关结果 </span>
+                </div>
+            </div>
+            
+            <!--最近更新 开始-->
+            <div id="最近更新" class="show">
+                <ul class="rb2-1 list1-1">
+                <gxsearch name="video" limit="20" order="'.$order.'">
+                    <li>
+                        <a href="{$video.readurl}" class="img" target="_blank"><span><if condition="$video.serial gt 0">更新至{$video.serial}<else />完结</if></span><i></i><img src="{$video.picurl}" alt="{$video.title}"/></a>
+                        <a href="{$video.readurl}" class="title" target="_blank">{$video.title}</a>
+                        <p class="title1">{$video.actor|get_replace_html=0,10|get_actor_url}</p>
+                    </li>
+                 </gxsearch>   
+                    
+                    
+                </ul>
+                <div class="clear">&nbsp;</div>
+                <!----分页 开始---->
+                <if condition="$count gt 10"><div class="pag">{$pages}</div></if>
+                <!----分页 结束---->
+            </div>
+            <!--最近更新 结束-->
+            
+            <!--列表 结束-->
+        </div>
+        <!--右边 结束-->
+    </div>
+    <!--列表 结束-->
+<script type="text/javascript" src="{$webpath}views/js/jquery.js"></script>
+<script type="text/javascript" src="{$webpath}views/js/system.js"></script>
+<script type="text/javascript" src="{$tplpath}yiku.js"></script>
+    <include file="footer" />   
+</div>
+<!--wapper 结束-->
+</body>
+</html>

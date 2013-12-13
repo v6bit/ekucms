@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$webtitle}</title>
+<meta name="keywords" content="{$ckeywords}{$keywords}">
+<meta name="description" content="{$cdescription}{$description}">
+<link rel="stylesheet" type="text/css" href="{$tplpath}pub.css"/>
+<link rel="stylesheet" type="text/css" href="{$tplpath}yiku.css"/>
+<script type="text/javascript" src="/ck6/ckplayer.js" charset="utf-8"></script>
+</head>
+
+<body>
+<include file="header" />
+<!--wapper 开始-->
+<div class="wapper">
+	<!--当前位置 开始-->
+    <div class="dq">
+        当前位置：{$navtitle} {$playname}
+    </div>
+    <!--当前位置 结束-->
+    
+    
+    <!--播放 开始-->
+    <div class="bf">
+        
+        <div class="bf1">{$player}</div>
+    </div>
+    <!--播放 结束-->
+	
+    <!--详情 开始-->
+    <div class="xq">
+        <!--左边 开始-->
+        <div class="left2">
+        
+        
+            <div class="like" style="margin-top:10px;">
+
+                <div id="tab" class="tab">
+                    <volist name="ppplay" id="video">
+                        <div id="play_name_{$i}" type="{$video.playname}" <if condition="$i eq 1"> class="on"<else />class="off"</if> title="{$video.playername}" onclick="video_detail_tag_change({$i},10,'play_name_','play_ji_','on','off','show','hide')"><span>{$video.playername}</span></div>
+                    </volist>    
+                </div>
+                
+                <volist name="ppplay" id="video">
+                    <div id="play_ji_{$i}" <if condition="$i eq 1"> class="show"<else />class="hide"</if>>
+                        <div class="like1-2"><span class="on5">正序</span><span onclick="document.getElementById('play_ji_{$i}').className = 'hide';document.getElementById('play_ji_desc_{$i}').className = 'show';">倒序</span></div>
+                        <!--剧集 开始-->
+                        <div class="juji">
+                        
+                        
+                        	<volist name="video['son']" id="ppvodson" key='ii'>
+                            
+                             <a href="{$ppvodson.playurl}" target="_blank">{$ppvodson.playname}</a>
+                            
+                            
+                            </volist>
+                            
+                            
+                            <div class="clear"></div>
+                        </div>
+                        <!--剧集 结束-->
+                        <div class="clear">&nbsp;</div>
+                    </div>
+                    
+                    <div id="play_ji_desc_{$i}" class="hide">
+                        <div class="like1-2"><span onclick="document.getElementById('play_ji_{$i}').className = 'show';document.getElementById('play_ji_desc_{$i}').className = 'hide';">正序</span><span class="on5">倒序</span></div>
+                        <!--剧集 开始-->
+                        <div class="juji">
+                        	<volist name="video['sondesc']" id="ppvodson" key='ii'><a href="{$ppvodson.playurl}" target="_blank">{$ppvodson.playname}</a></volist>
+                            <div class="clear"></div>
+                        </div>
+                        <!--剧集 结束-->
+                        <div class="clear">&nbsp;</div>
+                    </div>
+                    
+                </volist> 
+                
+                
+                
+            </div>            
+        
+        
+        
+        	<!--集数 开始-->
+            <div class="left2-2" style="display:none;">
+                    <div class="bg2">
+                    
+                        <p>共40集 当前更新至22集</p>
+                        
+                        <!--剧集 开始-->
+                        <div class="juji juji1">
+                            <a href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a><a href="#">8</a><a href="#">9</a><a href="#">10</a><a href="#">11</a><a href="#">12</a><a href="#">13</a><a href="#">14</a><a href="#">15</a><a href="#">16</a><a href="#">17</a><a href="#">18</a><a href="#">19</a><a href="#">20</a><a href="#">21</a><a href="#">22</a><a href="#">23<img src="images/xin.gif" /></a>
+                            <div class="clear"></div>
+                        </div>
+                        <!--剧集 结束-->
+                        
+                    </div>
+            </div>
+            <!--集数 结束-->
+            
+            
+            <!--广告 开始-->
+            <div class="banner2">{:get_cms_ads('play_700_90')}</div>
+            <!--广告 结束-->
+            <!--猜你喜欢 开始-->
+            <div class="like like1">
+                <div id="tab" class="tab">
+                    <div class="on" title="猜你喜欢" onclick="change(this)"><span>猜你喜欢</span></div>
+                </div>
+                <!--最近更新 开始-->
+                <div id="猜你喜欢" class="show">
+                    <ul class="rb2-1 list1-1" id="hot_video" href="{$webpath}index.php?s=my/show/id/hot_video/cid/{$cid}/limit/5">
+                    
+                    </ul>
+                    <div class="clear" style="height:15px;">&nbsp;</div>
+                </div>
+                <!--最近更新 结束-->
+            </div>
+            <!--猜你喜欢 结束-->
+            <!--评论 开始-->
+            <div class="pl" id="Comments">
+            
+            </div>
+            <!--评论 结束-->
+        </div>
+        <!--左边 结束-->
+        <!--右边 开始-->
+        <div class="right3">
+            <!--评分 开始-->
+            <div class="pf">
+                <div class="fx1">
+
+<!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+<a class="bds_tsina"></a>
+<a class="bds_qzone"></a>
+<a class="bds_renren"></a>
+<a class="bds_tqq"></a>
+<a class="bds_t163"></a>
+<span class="bds_more">更多</span>
+<a class="shareCount"></a>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=703427" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+
+
+                </div>
+            </div>
+            <!--评分 结束-->
+            <!--简介 开始-->
+            <div class="right1 jianjie">
+            <div class="bg">
+            	<h1><span>{$title}</span></h1>
+                <p>导演：<a href="#">{$director}</a></p>
+                <p>主演：<notempty name="actor">{$actor|get_actor_url}<else />未知</notempty></p>
+                <p>上映：{$year}</p>
+                <p>播放：{$hits}</p>
+                <div class="jianjie1">
+                	<span>剧情介绍：</span>
+                    <p>{$content}</p>
+                </div>
+            </div>
+            </div>
+            <!--简介 结束-->
+            <!--广告 开始-->
+            <div class="banner1">{:get_cms_ads('play_250_250')}</div>
+            <!--广告 结束-->
+        </div>
+        <!--右边 结束-->
+        <div class="clear"></div>
+    </div>
+    <!--详情 结束-->
+<script type="text/javascript" src="{$webpath}views/js/jquery.js"></script>
+<script type="text/javascript" src="{$webpath}views/js/system.js"></script>
+<script type="text/javascript" src="{$tplpath}yiku.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var name='{$title}';
+    var num='{$playname}';
+	var url=window.location.href;
+    CheckAdd(name,'gxhis',url,num)
+	
+	
+	
+	
+	var URL = document.URL.split('.html');
+	URL = URL[0].match(/\d+.*/g)[0].match(/\d+/g);
+	var Count = URL.length;
+	var sid = URL[(Count-1)]*1;
+	var array = new Array();
+	
+	
+		switch(url_html_play)
+		{
+			case 1://每集生成时的播放
+				
+				var URL = Player.Url.split(html_file_suffix+'?');
+				URL = URL[1].split('-');
+				Count = URL.length;
+				
+				if (Count == 2)
+				{
+					array['sid'] = 0;
+				}else{
+					array['sid'] = URL[2]*1;
+				}
+				
+
+				
+				
+				array['id'] = URL[0]*1;
+				array['pid'] = URL[1]*1;		
+				break;
+			case 2:
+				var URL = Player.Url.split(html_file_suffix);
+				URL = URL[0].split('/');
+				var Count = URL.length;
+				URL = URL[Count-1].split('-');
+				Count = URL.length;
+				
+				if (Count == 2)
+				{
+					array['sid'] = 0;
+				}else{
+					array['sid'] = URL[2]*1;
+				}
+				array['id'] = URL[0]*1;
+				array['pid'] = URL[1]*1;		
+				break;
+			default: //动态模式下面的加载播放器
+				var URL = Player.Url.split(html_file_suffix);
+				URL = URL[0].split('/');
+				var Count = URL.length;
+				URL = URL[Count-1].split('-');
+				Count = URL.length;
+				console.log(URL);
+				if (Count == 2)
+				{
+					array['sid'] = 0;
+				}else{
+					array['sid'] = URL[2]*1;
+				}
+				array['id'] = URL[0]*1;
+				array['pid'] = URL[1]*1;		
+				break;
+		}
+	
+	
+	var type = playlistArr[array['sid']];
+	
+	video_detail_tag_change2(type,10,'play_name_','play_ji_','on','off','show','hide');
+});
+</script>
+{$inserthits}
+    <include file="footer" />   
+</div>
+<!--wapper 结束-->
+</body>
+</html>

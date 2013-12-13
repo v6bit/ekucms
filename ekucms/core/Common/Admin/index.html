@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="{$keywords}">
+<meta name="description" content="{$description}">
+<title>{$webtitle}</title>
+<link rel="stylesheet" type="text/css" href="{$tplpath}pub.css"/>
+<link rel="stylesheet" type="text/css" href="{$tplpath}yiku.css"/>
+<script type="text/javascript" src="{$webpath}views/js/jquery.js"></script>
+<script language="JavaScript" type="text/javascript" src="/views/js/jquery.lazyload.js"></script>
+<script type="text/javascript">
+$(function() {
+$("img").lazyload({
+effect : "fadeIn"
+});
+});
+</script>
+</head>
+<body>
+
+<include file="header" />
+
+
+<!--wapper 开始-->
+<div class="wapper">
+	<!--第一部分 开始-->
+    <div class="main">
+    
+    
+    
+<div id="bigbanner">
+		<div id="banners">
+        
+            <div id="controls">
+            <gxcms name="slide" order="oid asc">
+                <li <if condition="$i eq 1"> class="active"</if>><a href="#" rel="banner-{$i}"></a></li>
+            </gxcms>
+            </div>
+            
+            <gxcms name="slide" order="oid asc">
+    		<div class="banner_n <if condition="$i eq 1">current</if>" id="banner-{$i}">
+     			<a href="{$slide.link}" target="_blank"><img src="{$slide.picurl}"/></a>
+     		</div>
+            </gxcms>
+		</div>
+  </div>   
+    
+    
+        
+        <!--右边 开始-->
+        <div class="rb">
+            <div class="rb1">
+            
+            	<span class="on1" id="index_new_tag_1" onmouseover="video_index_tag_change(1,5,'index_new_tag_','index_new_tag_list_','on1','','ph1','ph1')">更新</span>
+                <span id="index_new_tag_2" onmouseover="video_index_tag_change(2,5,'index_new_tag_','index_new_tag_list_','on1','','ph1','ph1')">电影</span>
+                <span id="index_new_tag_3" style="width:52px;" onmouseover="video_index_tag_change(3,5,'index_new_tag_','index_new_tag_list_','on1','','css1','ph1')">电视剧</span>
+                <span id="index_new_tag_4" onmouseover="video_index_tag_change(4,5,'index_new_tag_','index_new_tag_list_','on1','','ph1','ph1')">动漫</span>
+                <span id="index_new_tag_5" onmouseover="video_index_tag_change(5,5,'index_new_tag_','index_new_tag_list_','on1','','ph1','ph1')">综艺</span>
+                <div class="clear"></div>
+            </div>
+            
+            <!--更新 开始-->
+            <ul class="ph1" id="index_new_tag_list_1">
+            <gxcms name="video" cid='1,2,3,4,5,6' limit="10" order="addtime desc">
+            	<li class="css1" ><span <span <if condition="$i lt 4"> class="ph1-1"<else />class="ph1-2"</if>>{$i}</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><span>{$video.addtime|get_color_date='m-d',###}</span></li>
+            </gxcms>
+            </ul>
+            <!--更新 结束-->
+            
+            <!--电影 开始-->
+            <ul class="ph1" id="index_new_tag_list_2">
+                <gxcms name="video" cid='1' limit="10" order="addtime desc">
+                    <li class="css1"><span <span <if condition="$i lt 4"> class="ph1-1"<else />class="ph1-2"</if>>{$i}</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><span>{$video.addtime|get_color_date='m-d',###}</span></li>
+                </gxcms>
+            </ul>
+            <!--电影 结束-->
+            <!--电视剧 开始-->
+            <ul class="ph1" id="index_new_tag_list_3">
+                <gxcms name="video" cid='2' limit="10" order="addtime desc">
+                    <li class="css1"><span <span <if condition="$i lt 4"> class="ph1-1"<else />class="ph1-2"</if>>{$i}</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><span>{$video.addtime|get_color_date='m-d',###}</span></li>
+                </gxcms>
+            </ul>
+            <!--电视剧 结束-->
+            <!--动漫 开始-->
+            <ul class="ph1" id="index_new_tag_list_4">
+                <gxcms name="video" cid='4' limit="10" order="addtime desc">
+                    <li class="css1"><span <span <if condition="$i lt 4"> class="ph1-1"<else />class="ph1-2"</if>>{$i}</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><span>{$video.addtime|get_color_date='m-d',###}</span></li>
+                </gxcms>
+            </ul>
+            <!--动漫 结束-->
+            <!--综艺 开始-->
+            <ul class="ph1" id="index_new_tag_list_5">
+                <gxcms name="video" cid='3' limit="10" order="addtime desc">
+                    <li class="css1"><span <span <if condition="$i lt 4"> class="ph1-1"<else />class="ph1-2"</if>>{$i}</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,8}</a><span>{$video.addtime|get_color_date='m-d',###}</span></li>
+                </gxcms>
+            </ul>
+            <!--综艺 结束-->
+        </div>
+        <!--右边 结束-->
+      
+      
+      
+        
+        
+        
+    </div>
+    <!--第一部分 结束-->
+    <!--广告 开始-->
+    <div class="banner">{:get_cms_ads('inde_960_90')}</div>
+    <!--广告 结束-->
+    <!--板块 开始-->
+    <div class="main1">
+    	<!--左边 开始-->
+        <div class="left">
+            <!--电影 开始-->
+            <div class="dy">
+            	<div class="dy1">
+                	<span class="dy1-1">{:get_channel_name(1)}</span>
+                    <a href="{:get_channel_name(1,'showurl')}" target="_blank" class="more"></a>
+                    
+                    <p>
+                        <gxcms name="menu" ids="1">
+                        <gxfor name="menu.son" id="menuson"> <a href="{$menuson.showurl}" target="_blank">{$menuson.cname}</a></gxfor>
+                        </gxcms>
+                    </p>
+                </div>
+                <ul class="rb2-1 dy1-2">
+                
+                <gxcms name="video" cid="1" limit="10" order="addtime desc">
+                    <li>
+                        <a href="{$video.readurl}" target="_blank" title="{$video.title}" class="img"><img  onerror="this.src='{$webpath}views/images/nophoto.jpg'" src="{$video.picurl}" title="{$video.title}" /></a>
+                        <a href="{$video.readurl}" target="_blank" class="title">{$video.title|get_replace_html=0,10}</a>
+                        <p>{$video.actor|get_replace_html=0,10|get_actor_url}</p>
+                    </li>
+                 </gxcms>   
+                    
+                </ul>
+            </div>
+            <!--电影 结束-->
+            <!--电视剧 开始-->
+            <div class="dy">
+            	<div class="dy1">
+                	<span class="dy1-1">{:get_channel_name(2)}</span>
+                    <a href="{:get_channel_name(2,'showurl')}" target="_blank" class="more"></a>
+                    <p>
+                        <gxcms name="menu" ids="2">
+                        <gxfor name="menu.son" id="menuson"> <a href="{$menuson.showurl}" target="_blank">{$menuson.cname}</a></gxfor>
+                        </gxcms>
+                    </p>
+                </div>
+                <ul class="rb2-1 dy1-2">
+                
+                <gxcms name="video" cid="2" limit="10" order="addtime desc">
+                    <li>
+                        <a href="{$video.readurl}" target="_blank" title="{$video.title}" class="img"><img  onerror="this.src='{$webpath}views/images/nophoto.jpg'" src="{$video.picurl}" title="{$video.title}" /></a>
+                        <a href="{$video.readurl}" target="_blank" class="title">{$video.title|get_replace_html=0,10}</a>
+                        <p>{$video.actor|get_replace_html=0,10|get_actor_url}</p>
+                    </li>
+                 </gxcms>   
+                
+                </ul>
+            </div>
+            <!--电视剧 结束-->
+        </div>
+        <!--左边 结束-->
+        <!--右边 开始-->
+        <div class="right">
+        	<!--热播电影榜 开始-->
+            <div class="right1">
+            <div class="bg">
+            	<h1><span>热播电影榜</span></h1>
+                <!--热榜 开始-->
+                <ul class="ph2">
+                    <gxcms name="video" cid="1" limit="10" order="hits desc"> 
+					<li><span <if condition="$i lt 4"> class="ph1-1"<else />class="ph1-2"</if> >{$i}</span><a href="{$video.readurl}" target="_blank">{$video.title}</a><span>{$video.hits}</span></li>
+                    </gxcms>
+                </ul>
+                <!--热榜 结束-->
+            </div>
+            </div>
+            <!--热播电影榜 结束-->
+            
+                <gxcms name="self" cid='6' limit="2">
+                    <div class="pic"><a href="{$self.link}" target="_blank" ><img src="{$self.picurl}" alt="{$self.title}" /></a></div>
+                </gxcms>    
+            
+            
+            
+            <!--热播电视剧榜 开始-->
+            <div class="right1">
+            <div class="bg">
+            	<h1><span>热播电视剧榜</span></h1>
+                <!--热榜 开始-->
+                <ul class="ph2">
+                    <gxcms name="video" cid="2" limit="10" order="hits desc"> 
+					<li><span <if condition="$i lt 4"> class="ph1-1"<else />class="ph1-2"</if> >{$i}</span><a href="{$video.readurl}" target="_blank">{$video.title}</a><span>{$video.hits}</span></li>
+                    </gxcms>
+                </ul>
+                <!--热榜 结束-->
+            </div>
+            </div>
+            <!--热播电视剧榜 结束-->
+            
+                <gxcms name="self" cid='7' limit="2">
+                    <div class="pic"><a href="{$self.link}" target="_blank" ><img src="{$self.picurl}" alt="{$self.title}" /></a></div>
+                </gxcms>    
+            
+            
+        </div>
+        <!--右边 结束-->
+        <div class="clear"></div>
+    </div>
+    <!--板块 结束-->
+    
+    <!--广告 开始-->
+    <div class="banner">{:get_cms_ads('inde_960_90_2')}</div>
+    <!--广告 结束-->
+    
+    <!--板块 开始-->
+    <div class="main1">
+    	<!--左边 开始-->
+        <div class="left">
+            <!--综艺 开始-->
+            <div class="dy dy2">
+            	<div class="dy1">
+                	<span class="dy1-1">{:get_channel_name(4)}</span>
+                    <a href="{:get_channel_name(4,'showurl')}" target="_blank" class="more"></a>
+                    <p>
+                        <gxcms name="menu" ids="4">
+                        <gxfor name="menu.son" id="menuson"> <a href="{$menuson.showurl}" target="_blank">{$menuson.cname}</a></gxfor>
+                        </gxcms>
+                    </p>
+                </div>
+                <ul class="rb2-1 dy1-2">
+                
+                <gxcms name="video" cid="4" limit="5" order="addtime desc">
+                    <li>
+                        <a href="{$video.readurl}" target="_blank" title="{$video.title}" class="img"><img  onerror="this.src='{$webpath}views/images/nophoto.jpg'" src="{$video.picurl}" title="{$video.title}" /></a>
+                        <a href="{$video.readurl}" target="_blank" class="title">{$video.title|get_replace_html=0,10}</a>
+                        <p>{$video.actor|get_replace_html=0,10|get_actor_url}</p>
+                    </li>
+                 </gxcms>   
+                
+                </ul>
+            </div>
+            <!--综艺 结束-->
+            <!--动漫 开始-->
+            <div class="dy dy2">
+            	<div class="dy1">
+                	<span class="dy1-1">{:get_channel_name(3)}</span>
+                    <a href="{:get_channel_name(3,'showurl')}"  target="_blank" class="more"></a>
+                    <p>
+                        <gxcms name="menu" ids="3">
+                        <gxfor name="menu.son" id="menuson"> <a href="{$menuson.showurl}" target="_blank">{$menuson.cname}</a></gxfor>
+                        </gxcms>
+                    </p>
+                </div>
+                <ul class="rb2-1 dy1-2">
+                <gxcms name="video" cid="3" limit="5" order="addtime desc">
+                    <li>
+                        <a href="{$video.readurl}" target="_blank" title="{$video.title}" class="img"><img  onerror="this.src='{$webpath}views/images/nophoto.jpg'" src="{$video.picurl}" title="{$video.title}" /></a>
+                        <a href="{$video.readurl}" target="_blank" class="title">{$video.title|get_replace_html=0,10}</a>
+                        <p>{$video.actor|get_replace_html=0,10|get_actor_url}</p>
+                    </li>
+                 </gxcms>   
+                </ul>
+            </div>
+            <!--动漫 结束-->
+        </div>
+        <!--左边 结束-->
+        <!--右边 开始-->
+        <div class="right">
+        	<!--综艺热播榜 开始-->
+            <div class="right1 right1-1">
+            <div class="bg">
+            	<h1><span>综艺热播榜</span></h1>
+                <!--热榜 开始-->
+                <ul class="ph2">
+                    <gxcms name="video" cid="4" limit="10" order="hits desc"> 
+					<li><span <if condition="$i lt 4"> class="ph1-1"<else />class="ph1-2"</if> >{$i}</span><a href="{$video.readurl}" target="_blank">{$video.title}</a><span>{$video.hits}</span></li>
+                    </gxcms>
+                </ul>
+                <!--热榜 结束-->
+            </div>
+            </div>
+            <!--综艺热播榜 结束-->
+            <!--动漫热播榜 开始-->
+            <div class="right1 right1-1">
+            <div class="bg">
+            	<h1><span>动漫热播榜</span></h1>
+                <!--热榜 开始-->
+                <ul class="ph2">
+                    <gxcms name="video" cid="3" limit="10" order="hits desc"> 
+					<li><span <if condition="$i lt 4"> class="ph1-1"<else />class="ph1-2"</if> >{$i}</span><a href="{$video.readurl}" target="_blank">{$video.title}</a><span>{$video.hits}</span></li>
+                    </gxcms>
+                </ul>
+                <!--热榜 结束-->
+            </div>
+            </div>
+            <!--动漫热播榜 结束-->
+        </div>
+        <!--右边 结束-->
+        <div class="clear"></div>
+    </div>
+    <!--板块 结束-->
+    
+    <!--友情链接 开始-->
+    <div class="yq">
+   	<div class="bg1">
+    	<h1>友情链接</h1>
+        <div class="yq1">
+        	<gxcms name="link" limit="100" order="type asc,oid desc">
+        	<a href="{$link.url}" target="_blank">{$link.title|get_replace_html=0,8}</a>
+           </gxcms>
+            <div class="clear"></div>
+        </div>
+    </div>
+    </div>
+    <!--友情链接 结束-->
+<script type="text/javascript" src="{$webpath}views/js/system.js"></script>
+<script type="text/javascript" src="{$tplpath}yiku.js"></script>
+<script>
+    $(document).ready(function(){
+	$("#controls li a").click(function(){
+        /*Performed when a control is clicked */
+	    shuffle();
+	    var rel = $(this).attr("rel");
+	    if ( $("#" + rel).hasClass("current") ){
+	        return false;
+	    }
+        /* Bug Fix, thanks Dave -> added .stop(true,true) 
+            to stop any ongoing animation */
+	    $("#" + rel).stop(true,true).show();
+	    $(".current").fadeOut().removeClass("current");
+	    $("#" + rel).addClass("current");
+	    $(".active").removeClass("active");
+	    $(this).parents("li").addClass("active");
+	    set_new_interval(5000);
+	    return false;
+	});
+	/* 
+	* Optional Pause on Hover Feature 
+	* Comment out to use it
+	* Thanks, Andrew 
+	*/
+	/*$('.banner').hover(function() {
+			clearInterval(slide);
+		}, function () {
+			slide = setInterval( "banner_switch()", 7000 );
+	});*/
+    });
+    function banner_switch(){
+        /*This function is called on to switch the banners out when the time limit is reached */
+        shuffle();
+        var next = $('.banner_n.current').next('.banner_n').length ? 
+            $('.banner_n.current').next('.banner_n') : $('#banners .banner_n:first');
+        $(next).show();
+        $(".current").fadeOut().removeClass("current");
+        $(next).addClass("current");
+        var next_link = $(".active").next("li").length ? $('.active').next('li') : $('#controls li:first');
+        $(".active").removeClass("active");
+        $(next_link).addClass('active');
+    }
+    $(function() {
+        /*Initial timer setting */
+        slide = setInterval("banner_switch()", 5000);
+    });
+    function set_new_interval(interval){
+        /*Simply clears out the old timer interval and restarts it */
+        clearInterval(slide);
+        slide = setInterval("banner_switch()", interval);
+    }
+    function shuffle(){
+        /*This function takes every .banner and changes the z-index to 1, hides them,
+            then takes the ".current" banner and brings it above and shows it */
+        $(".banner_n").css("z-index", 1).hide();
+        $(".current").css("z-index", 2).show();
+    }
+    </script>
+	<include file="footer" />    
+</div>
+<!--wapper 结束-->
+</body>
+</html>
