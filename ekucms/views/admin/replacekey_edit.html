@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>多分类系统</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel='stylesheet' type='text/css' href='./views/css/admin_style.css'>
+<script language="JavaScript" charset="utf-8" type="text/javascript" src="./views/js/jquery.js"></script>
+<style>input{ height:25px;line-height:20px};</style>
+</head>
+<body>
+<table width="98%" border="0" cellpadding="4" cellspacing="1" class="table">
+<td width="100">
+<form id="gxform" name="update" action="?s=Admin/Wei/UpdateReplace" method="post">
+<input type="hidden" name="id" value="{$id}">
+<tr class="table_title">
+  <td colspan="2">{$tpltitle}替换关键字</td>
+</tr>
+ <tr class="tr">
+   <td class="rt">原始关键字：</td>
+   <td ><input name="firstkey" type="text" id="firstkey" style="width:200px" value="{$firstkey}" maxlength="200"> 
+   * 注意：关键字不能重复</td>
+</tr>  
+<tr class="tr">
+  <td class="rt">替换关键字：</td>
+  <td ><input name="endkey" type="text" id="endkey" style="width:345px;line-height:18px;"  value="{$endkey}">
+    *</td>
+</tr>
+<tr class="tr">
+  <td colspan="2"><input class="bginput" type="submit" name="submit" value="提交"></td>
+</tr>
+</form>
+</table>
+<include file="footer" />
+</body>
+</html>

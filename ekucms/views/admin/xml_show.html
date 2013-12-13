@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>资源库列表</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel='stylesheet' type='text/css' href='./views/css/admin_style.css'>
+<script language="JavaScript" charset="utf-8" type="text/javascript" src="./views/js/jquery.js"></script>
+<script language="javascript">
+function changeurl($cid,$hour){
+	self.location.href = getjumpurl($cid,$hour);
+}
+function getjumpurl($action,$cid,$hour){
+	return '?s=Admin/Xml/{*ACTION_NAME}/action/'+$action+'/fid/{$fid}/xmlurl/{$xmlurl}/reurl/{$reurl}/vodids/{$vodids}/play/{$play}/inputer/{$inputer}/cid/'+$cid+'/wd-/$wd}/h/'+$hour;
+}
+$(document).ready(function(){
+	//$ff84.show.table();	
+});
+</script>
+</head>
+<body class="body">
+<!--背景灰色变暗-->
+<div id="showbg" style="position:absolute;left:0px;top:0px;filter:Alpha(Opacity=0);opacity:0.0;background-color:#fff;z-index:8;"></div>
+<!--绑定分类表单框-->
+<div id="setbind" style="position:absolute;display:none;background: #85BFDC;padding:4px 5px 5px 5px;z-index:9;"></div>
+<form action="?s=Admin-Xml-{*ACTION_NAME}" method="post" name="ekuform" id="ekuform">
+  {__NOTOKEN__}
+  <table width="99%" border="0" cellpadding="5" cellspacing="1" class="table" style="border-bottom:1px solid #cad9ea">
+    <thead>
+      <tr  class="table_title">
+        <th colspan="6" class="r"><span style="float:left">分类绑定设置
+          <notempty name="cid" value="0"><a href="javascript:changeurl('','');"><font color="red">查看全部资源</font></a></notempty>
+        </span><span style="float:right"><a href="?s=Admin/Xml/Show">返回资源库列表</a></span></th>
+      </tr>
+    </thead>
+    <tr class="tr"><volist name="list_class" id="ekucms">
+        <if condition="$i neq 1 and $i%6 eq 1">
+    </tr>
+    <tr class="tr"></if>
+      <td class="ct"><a href="?s=Admin/Xml/{*ACTION_NAME}/fid/{$fid}/xmlurl/{$xmlurl}/reurl/{$reurl}/play/{$play}/inputer/{$inputer}/cid/{$ekucms.list_id}/wd/{$wd}">{$ekucms.list_name}</a> 
+      
+      
+      <a href="javascript:void(0)" onClick="setbind(event,'{$ekucms.list_id}','{$ekucms.bind_id}');" id="bind_{$ekucms.bind_id}"><if condition="getbindval($ekucms['bind_id']) gt 0"><font color="green">已绑定</font><else /><font color="red">未绑定</font></if></a>
+      
+      </td>
+        </volist>
+    </tr>
+    <tr class="tr">
+      <td colspan="6" class="ct"><input type="button" value="全选" class="submit" onclick="checkinput('all');">
+        <input name="" type="button" value="反选" class="submit" onClick="checkinput();">
+        <input type="button" value="采集" class="submit" onClick="post(getjumpurl('ids','',''));">
+        <input type="button" value="采集当天" class="submit" onClick="post(getjumpurl('day','',24));">
+        <notempty name="cid" value="0">
+          <input type="button" value="采集本类" class="submit" onClick="post(getjumpurl('all','{$cid}',''));">
+        </notempty>
+        <input type="button" value="采集所有" class="submit" onClick="post(getjumpurl('all','',''));">
+        <input type="text" name="wd" id="wd" maxlength="20" value="{$wd|urldecode}" onClick="this.select();" style="color:#666666">
+        <input type="button" value="搜索" class="submit" onClick="post(getjumpurl('','',''));"></td>
+    </tr>
+  </table>
+  <br />
+  <table width="99%" border="0" cellpadding="5" cellspacing="1" class="table">
+    <tr align="center" class="list_head">
+      <td width="803" align="left" >影片分类/影片名称/影片主演</td>
+      <td width="166" >播放器</td>
+      <td width="235">更新时间</td>
+    </tr>
+    <volist name="list_vod" id="gxcms">
+      <tr class="tr">
+        <td ><input name='ids[]' type='checkbox' value='{$gxcms.vod_id}' class="noborder" checked="checked" />
+          [{$gxcms.list_name}] {$gxcms.vod_name|htmlspecialchars} <font color="#999999">{$gxcms.intro|htmlspecialchars|get_replace_html=0,20,'utf-8',true}</font></td>
+        <td align="center">{$gxcms.vod_play|str_replace='$$$',' ',###}</td>
+        <td align="center" style="padding:0px">{$gxcms.vod_addtime|htmlspecialchars}</td>
+      </tr>
+    </volist>
+    <tr class="tr" style="text-align:center">
+      <td colspan="3" class="pages">{$pagelist}</td>
+    </tr>
+    <tr class="tr">
+      <td colspan="3"><input type="button" value="全选" class="bginput" onclick="checkinput('all');" />
+        <input type="button" value="反选" class="bginput" onclick="checkinput();" />
+        <input type="button" value="批量采集" class="bginput" onclick="post(getjumpurl('ids','',''));" />
+        <input type="button" value="采集当天" class="bginput" onclick="post(getjumpurl('day','',24));" />
+        <notempty name="cid" value="0">
+          <input type="button" value="采集本类" class="bginput" onclick="post(getjumpurl('all','{$cid}',''));" />
+        </notempty>
+        <input type="button" value="采集所有" class="bginput" onclick="post(getjumpurl('all','',''));" /></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</form>
+<script language="JavaScript" charset="utf-8" type="text/javascript">
+//获取跳转地址
+function getjumpurl($action,$cid,$hour){
+	
+	return '?s=Admin/Xml/{*ACTION_NAME}/action/'+$action+'/fid/{$fid}/xmlurl/{$xmlurl}/reurl/{$reurl}/vodids/{$vodids}/play/{$play}/inputer/{$inputer}/cid/'+$cid+'/wd/{$wd}/h/'+$hour;
+	return '?s=Admin/Collect/Gxcms/ziyuan/{$ziyuan}/fid/{$fid}/action/'+$action+'/xmlurl/{$xmlurl}/reurl/{$reurl}/vodids/{$vodids}/play/{$play}/inputer/{$inputer}/cid/'+$cid+'/wd/{$wd}/h/'+$hour;
+}
+//绑定分类
+function setbind(event,cid,bind){
+	$('#showbg').css({width:$(window).width(),height:$(window).height()});	
+	var left = event.clientX+document.body.scrollLeft-70;
+	var top = event.clientY+document.body.scrollTop+5;
+	$.ajax({
+		url: '?s=Admin/Collect/Setbind/cid/'+cid+'/bind/'+bind,
+		cache: false,
+		async: false,
+		success: function(res){
+			if(res.indexOf('status') > 0){
+				alert('对不起,您没有该功能的管理权限!');
+			}else{
+				$("#setbind").css({left:left,top:top,display:""});			
+				$("#setbind").html(res);
+			}
+		}
+	});
+}
+//取消绑定
+function hidebind(){
+	$('#showbg').css({width:0,height:0});
+	$('#setbind').hide();
+}
+//提交绑定分类
+var submitbind = function (cid,bind){
+	$.ajax({
+		url: '?s=Admin/Collect/Insertbind/cid/'+cid+'/bind/'+bind,
+		success: function(res){
+			if(cid==''){
+			$("#bind_"+bind).html(" <a href='javascript:void(0)' onClick=setbind(event,'"+cid+"','"+bind+"');><font color='red'>未绑定</font></a>");
+			}else{
+			$("#bind_"+bind).html(" <a href='javascript:void(0)' onClick=setbind(event,'"+cid+"','"+bind+"');>已绑定</a>");
+			}
+			hidebind();
+		}
+	});	
+}
+//全选与反选
+function checkinput($all){
+	if($all){
+		$("input[name='ids[]']").each(function(){
+				this.checked = true;
+		});		
+	}else{
+		$("input[name='ids[]']").each(function(){
+			if(this.checked == false)
+				this.checked = true;
+			else
+			   this.checked = false;
+		});		
+	}
+}
+//表单提交
+function post($url){
+	$('#ekuform').attr('action',$url);
+	$('#ekuform').submit();
+}
+</script>
+
+<include file="./Public/system/footer.html" />
+</body>
+</html>

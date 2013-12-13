@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>多分类系统</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel='stylesheet' type='text/css' href='./views/css/admin_style.css'>
+<script language="JavaScript" charset="utf-8" type="text/javascript" src="./views/js/jquery.js"></script>
+<style>input{ height:25px;line-height:20px};</style>
+</head>
+<body>
+<table width="98%" border="0" cellpadding="4" cellspacing="1" class="table">
+<gt name="m_cid" value="0">
+<form id="gxform" name="update" action="?s=Admin/Stype/Update" method="post">
+<input type="hidden" name="m_cid" value="{$m_cid}">
+<else />
+<form id="gxform" action="?s=Admin/Stype/Insert" method="post" name="gxform">
+</gt>
+<tr class="table_title">
+  <td colspan="2">{$tpltitle}多分类</td>
+</tr>      
+<tr class="tr">
+  <td width="100" class="rt">现有分类：</td>
+  <td>
+  <select name="m_list_id" id="m_list_id" class="w120">
+  <option value="0">现有分类</option>
+  <volist name="list_tree" id="ppvod">
+  	<option value="{$ppvod.id}" <eq name="ppvod.id" value="$m_list_id">selected</eq>>{$ppvod.cname}</option>
+  </volist>
+  </select>
+   *</td>
+</tr>
+ <tr class="tr">
+  <td class="rt">栏目中文名称：</td>
+  <td ><input name="m_name" type="text" id="m_name" style="width:100px" value="{$m_name}" maxlength="100"> *</td>
+</tr>  
+<tr class="tr">
+  <td class="rt">栏目排序：</td>
+  <td ><input name="m_order" type="text" id="m_order" style="width:45px;height:18px;line-height:18px;text-align:center" title="越小越前面" value="{$m_order}" maxlength="2"></td>
+</tr>
+<tr class="tr">
+  <td colspan="2"><input class="bginput" type="submit" name="submit" value="提交"></td>
+</tr>
+</form>
+</table>
+<include file="footer" />
+</body>
+</html>

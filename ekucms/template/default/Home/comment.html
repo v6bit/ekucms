@@ -1,0 +1,25 @@
+                <h1>我有话说 <font style="color:#0099d8; font-weight:normal;"></font></h1>
+                <div class="pl1"><textarea name="content" id="comment_content" cols="" rows=""></textarea></div>
+                <div class="pl2"><input name="" type="button" value=" " onclick="CommentPost();" /><span>140字</span></div>
+                
+                <!--评论列表 开始-->
+                <notempty name="list_comment">
+                <gxfor name="list_comment" id="comment">
+                    <div class="pl3">
+                        <img src="./images/a4.jpg" />
+                        <div class="pl3-1">
+                            <p><span>{$comment.floor}楼</span> {$comment.addtime|date='Y-m-d',###}</p>
+                            <p>{$comment.content|htmlspecialchars|remove_xss}</p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </gxfor>
+                </notempty>
+                
+                <!--评论列表 结束-->
+                <div class="clear">&nbsp;</div>
+                <!----分页 开始---->
+                
+                <if condition="$count gt C('user_page_cm')"><div class="pag">{$pages}</div></if>
+                <!----分页 结束---->
+            </div>

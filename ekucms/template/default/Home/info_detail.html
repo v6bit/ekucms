@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$webtitle}</title>
+<meta name="keywords" content="{$ckeywords}{$keywords}">
+<meta name="description" content="{$cdescription}{$description}">
+<link rel="stylesheet" type="text/css" href="{$tplpath}pub.css"/>
+<link rel="stylesheet" type="text/css" href="{$tplpath}yiku.css"/>
+</head>
+<body>
+<include file="header" />
+<div class="wapper">
+<div class="dq"><span>您现在所在的位置：</span>{$navtitle}</div>
+<div class="list">
+   		<!--左边 开始-->
+        <div class="left1">
+            <!--最近更新电视剧 开始-->
+            <div class="right1 left1-1">
+            <div class="bg">
+            	<h1><span>最近更新{$cname}</span></h1>
+                <!--热榜 开始-->
+                <ul class="ph2">
+                <gxcms name="info" cid="'.$cid.'" limit="10" order="addtime desc">
+                    <li><span <if condition="$i lt 4"> class="ph1-1"<else />class="ph1-2"</if>>{$i}</span><a href="{$video.readurl}" target="_blank">{$info.title}</a><span>{$info.addtime|get_color_date='m-d',###}</span></li>
+                </gxcms>
+                </ul>
+                <!--热榜 结束-->
+            </div>
+            </div>
+            <!--最近更新电视剧 结束-->
+        </div>
+        <!--左边 结束-->
+
+
+        <!--右边 开始-->
+        <div class="right2">
+            <div class="right2-1">
+           	<span class="h1">{$title}</span></div>
+            <!--列表 开始-->
+            
+            <!--最近更新 开始-->
+            <div class="show">
+            	<div style="font-size:14px; line-height:26px; padding:10px;">{$content}</div>
+                <div class="clear">&nbsp;</div>
+                <!----分页 开始---->
+                <gt name="count" value="10"><div class="pag">{$pages}</div></gt>
+                <!----分页 结束---->
+            </div>
+            <!--最近更新 结束-->
+            
+            <!--列表 结束-->
+        </div>
+        <!--右边 结束-->
+</div>
+<include file="footer" /> 
+</div>
+</body>
+</html>

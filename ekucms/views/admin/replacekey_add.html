@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>多分类系统</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel='stylesheet' type='text/css' href='./views/css/admin_style.css'>
+<script language="JavaScript" charset="utf-8" type="text/javascript" src="./views/js/jquery.js"></script>
+<style>input{ height:25px;line-height:20px};</style>
+</head>
+<body>
+<form id="gxform" action="?s=Admin/Wei/InsertReplaceKey" method="post" name="gxform">
+
+<table width="98%" border="0" cellpadding="4" cellspacing="1" class="table">
+<tr class="table_title">
+  <td colspan="2">添加替换关键词库</td>
+</tr>
+ <tr class="tr">
+   <td width="47%" align="left" class="rt" style="text-align:left;">原始关键词：</td>
+   <td width="53%" align="left" >替换关键词</td>
+</tr>  
+ <tr class="tr">
+   <td class="rt" style="text-align:left;"><textarea name="firstkey" rows="20" id="firstkey" style="width:98%;line-height:18px;">{$link}</textarea>
+     <br />
+     一行一个关键词</td>
+   <td ><textarea name="endkey" rows="20" id="endkey" style="width:98%;line-height:18px;">{$link}</textarea>
+     <br />
+     <span class="rt">一行一个关键词</span></td>
+</tr>  
+<tr class="tr">
+  <td colspan="2" align="left"><input class="bginput" type="submit" name="submit" value="  提交  "></td>
+</tr>
+</table> 
+`</form>
+
+<include file="footer" />
+</body>
+</html>
