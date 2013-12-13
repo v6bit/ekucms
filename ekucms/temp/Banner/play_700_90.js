@@ -1,1 +1,0 @@
-document.write("<a href=\"http://www.v6speed.org/\" target=\"_blank\"><img src=\"/images/700.jpg\" width=\"700\" height=\"90\" /></a>");

@@ -1,5 +1,0 @@
-<?php if (!defined('THINK_PATH')) exit();?><?php $tag['name'] = 'video';$tag['cid'] = ''.$_GET['cid'].'';$tag['limit'] = ''.$_GET['limit'].'';$tag['order'] = 'stars desc,hits desc'; $__LIST__ = get_tag_gxcms($tag); if(is_array($__LIST__)): $i = 0;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$video): ++$i;$mod = ($i % 2 );?><li>
-                            <a href="<?php echo ($video["readurl"]); ?>" target="_blank" class="img"><span><?php if($video["serial"] > 0): ?>更新至<?php echo ($video["serial"]); ?><?php else: ?>完结<?php endif; ?></span><i></i><img src="<?php echo ($video["picurl"]); ?>" /></a>
-                            <a href="<?php echo ($video["readurl"]); ?>" target="_blank" class="title"><?php echo (get_replace_html($video["title"],0,8)); ?></a>
-                            <p class="title1"><?php echo (get_actor_url(get_replace_html($video["actor"],0,10))); ?></p>
-                        </li><?php endforeach; endif; else: echo "" ;endif;unset($__LIST__);unset($tag);?>
