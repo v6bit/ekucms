@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+
+<head>
+
+
+
+<title>手工管理</title>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+
+<link rel='stylesheet' type='text/css' href='./views/css/admin_style.css'>
+
+
+
+<script language="JavaScript" charset="utf-8" type="text/javascript" src="./views/js/jquery.js"></script>
+
+
+
+<script language="JavaScript" charset="utf-8" type="text/javascript" src="./views/js/admin_all.js"></script>
+
+
+
+</head>
+
+
+
+<body>
+
+
+
+<table width="98%" border="0" cellspacing="1" cellpadding="5">
+  <tr>
+    <td align="left"><input type="button" name="button" id="button" value="  添加手工  " onclick="window.location='/index.php?s=Admin/Self/Add';" /></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+  <tr>
+
+    <td width="13%" align="left" valign="top" bgcolor="#F2F9FD">
+
+    
+
+     <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+       <tr>
+
+         <td style="color:#FFF; height:24px; padding-left:5px;"><a href="?s=Admin/Self/Mana/"><strong>全部手工</strong></a></td>
+
+       </tr>
+
+        <?php
+       	foreach($list_type as $gxcms){
+        	if ($gxcms['fid'] == 0){
+        ?>
+           <tr><td style="color:#000; height:24px; padding-left:5px;">{$gxcms['name']}</td></tr>
+        <?php
+            }
+            foreach($list_type as $gxcmss){
+                if ($gxcmss['fid'] == $gxcms['id'])
+                {
+        ?>
+           <tr><td style="color:#000; height:24px; padding-left:5px;">&nbsp;&nbsp;|--<a href="?s=Admin/Self/Mana/cid/{$gxcmss['id']}">{$gxcmss['name']}</a></td></tr>
+        <?php
+                }
+            }
+        }
+        ?>
+
+     </table>
+
+    </td>
+
+    <td width="87%" valign="top"><table width="98%" border="0" cellpadding="4" cellspacing="1" class="table">
+
+      <tr class="table_title">
+
+        <td colspan="6">网站手工管理</td>
+
+      </tr>
+
+      <tr>
+
+        <td colspan="6">全部
+
+          </td>
+
+      </tr>
+
+      <tr class="list_head ct">
+
+        <td width="96" align="center">编号</td>
+
+        <td width="447" >标 题</td>
+
+        <td width="274" >分类</td>
+
+        <td width="104">排序</td>
+
+        <td width="227">录入时间
+
+          <eq name="order" value="addtime desc"><a href="?s=Admin/Special/Show/type/addtime/order/asc"><img src="./views/images/admin/up.gif" border="0" alt="点击按时间升序排列" /></a>
+
+            <else />
+
+            <a href="?s=Admin/Special/Show/type/addtime/order/desc"><img src="./views/images/admin/down.gif" border="0" alt="点击按时间降序排列" /></a></eq></td>
+
+        <td width="100">操作</td>
+
+      </tr>
+
+      <form action="?s=Admin/Special/Delall" method="post" id="gxform" name="gxform">
+
+        <volist name="list_special" id="gxcms">
+
+          <tr class="tr" onmouseover="this.style.backgroundColor='#EFEFEF';" onmouseout="this.style.backgroundColor='#FFFFFF';">
+
+            <td align="center">{$gxcms.id}</td>
+
+            <td align="left"><a href="{$gxcms.link}" target="_blank" style="color:{$gxcms.color}">{:htmlspecialchars(msubstr($gxcms['title'].$gxcms['intro'],0,40))}</a></td>
+
+            <td align="left"><a href="?s=Admin/Self/Mana/cid/{$gxcms.cid}">{$gxcms.cname}</a></td>
+
+            <td class="td ct">{$gxcms.orders}</td>
+
+            <td class="td ct">{$gxcms.actiontime|date='Y-m-d H:i:s',###}</td>
+
+            <td class="td ct"><a href="?s=Admin/Self/Add/id/{$gxcms.id}"  title="点击修改专题">编辑</a> <a href="?s=Admin/Self/Del/id/{$gxcms.id}" onclick="return confirm('确定删除该手工吗?')"  title="点击删除专题">删除</a></td>
+
+          </tr>
+
+        </volist>
+
+        <tr>
+          
+          <td colspan="6" bgcolor="#FFFFFF"><div class="pages">{$listpages}</div></td>
+          
+        </tr>
+
+        </form>
+
+    </table></td>
+
+  </tr>
+
+</table>
+
+<include file="footer" />
+
+
+
+</body>
+
+
+
+</html>

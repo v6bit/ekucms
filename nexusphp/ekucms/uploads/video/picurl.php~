@@ -1,0 +1,11 @@
+<?php
+$pic="http://img3.douban.com/view/photo/icon/public/p1996512246.jpg";
+$data=file_get_contents($pic);
+$filetime=time();
+$filepath="/var/www/nexusphp/ekucms/uploads/video/".date("Y-m-d",$filetime);
+if(!is_dir($filepath))
+mkdir($filepath,0777,true);
+$fp=@fopen($filepath,"w");
+@fwrite($fp,$data);
+fclose($fp);
+?>

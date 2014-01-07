@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$webtitle}</title>
+<meta name="keywords" content="{$ckeywords}{$keywords}">
+<meta name="description" content="{$cdescription}{$description}">
+<link rel="stylesheet" type="text/css" href="{$tplpath}pub.css"/>
+<link rel="stylesheet" type="text/css" href="{$tplpath}yiku.css"/>
+<script language="javascript">var SitePath='{$webpath}';var SiteMid='{$mid}';var SiteCid='{$cid}';var SiteId='{$id}';</script>
+</head>
+
+<body>
+<include file="header" />
+<!--wapper 开始-->
+<div class="wapper">
+	<!--当前位置 开始-->
+    <div class="dq">
+        当前位置：{$navtitle}
+    </div>
+    <!--当前位置 结束-->
+	<!--详情 开始-->
+    <div class="xq">
+        <!--左边 开始-->
+        <div class="left2">
+            <!--电视简介 开始-->
+            <div class="left2-1">
+                <div class="ds">
+                	<span class="img1"><img onerror="this.src='{$webpath}views/images/nophoto.jpg'" src="{$picurl}" /></span>
+                    <div class="ds1">
+                    
+<!-- Baidu Button BEGIN -->
+<div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+<a class="bds_qzone"></a>
+<a class="bds_tsina"></a>
+<a class="bds_tqq"></a>
+<a class="bds_renren"></a>
+<a class="bds_t163"></a>
+<span class="bds_more">更多</span>
+</div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=703427" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->                    
+                    
+                    
+                    </div>
+                    <span class="tishi">分享影片后，播放时会加速哦!</span>
+                </div>
+                
+                <div class="ds2">
+                	<h1>{$title} <span style="font-size:12px; color:#F30"><if condition="$serial gt 0">更新至{$serial}<else />完结</if></span></h1>
+                    <div class="ds2-1">
+                    	<span>导演：</span>
+                        <p><notempty name="director">{$director}<else />未知</notempty></p>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="ds2-1">
+                    	<span>主演：</span>
+                        <p><notempty name="actor">{$actor|get_actor_url}<else />未知</notempty></p>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="ds2-1">
+                    	<span>类型：</span>
+                        <p><a href="{$showurl}">{$cname}</a> {$stype_mcid|eku_stype_url=$cid}</span></p>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="ds2-1">
+                    	<span>年代：</span>
+                        <p>{$year|default='未录入'}</p>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="ds2-1">
+                    	<span>评分：</span>
+                        <p id="Scores" alttext="{$score}" title="我也来评分">加载中...
+                        </p>
+                        <div class="clear"></div>
+                    </div>
+                    
+                </div>
+                <div class="clear"></div>
+            </div>
+            <!--电视简介 结束-->
+            
+            
+            
+            <div class="like">
+
+                <div id="tab" class="tab">
+
+                    <volist name="ppplay" id="video">
+<!--页面播放注销>
+                 <!--  <div id="play_name_{$i}" <if condition="$i eq 1"> class="on"<else />class="off"</if> title="{$video.playername}" onclick="video_detail_tag_change({$i},10,'play_name_','play_ji_','on','off','show','hide')"><span>{$video.playername}</span></div> --> 
+
+<div id="play_name_2" class="on" onclick='window.location.href="v6player://{$name.nexusphp}&ty=1&ro=2&url=www.nexusphp.com&id={$name.nexusphp}&ua={$passkey}";'><span>客户端播放</span></div> 
+                    </volist>    
+
+
+
+
+
+
+
+                </div>
+                
+                <volist name="ppplay" id="video">
+                    <div id="play_ji_{$i}" <if condition="$i eq 1"> class="show"<else />class="hide"</if>>
+                     <!--   <div class="like1-2"><span class="on5">正序</span><span onclick="document.getElementById('play_ji_{$i}').className = 'hide';document.getElementById('play_ji_desc_{$i}').className = 'show';">倒序</span></div> -->
+<div class="like1-2">
+<form action=''>
+
+<span class="on5" onclick='window.location.href="v6player://{$name.nexusphp}&ty=1&ro=2&url=www.nexusphp.com&id={$name.nexusphp}&ua={$passkey}";'>点击播放</span>
+
+</form>
+</div>
+                        <!--剧集 开始-->
+                 <!--       <div class="juji">
+                        	<volist name="video['son']" id="ppvodson" key='ii'><a href="{$ppvodson.playurl}" target="_blank">{$ppvodson.playname}</a></volist>
+                            <div class="clear"></div>
+                        </div>  -->
+
+                        <!--剧集 结束-->
+                        <div class="clear">&nbsp;</div>
+                    </div>
+                    
+                    <div id="play_ji_desc_{$i}" class="hide">
+                        <div class="like1-2"><span onclick="document.getElementById('play_ji_{$i}').className = 'show';document.getElementById('play_ji_desc_{$i}').className = 'hide';">正序</span><span class="on5">倒序</span></div>
+                        <!--剧集 开始-->
+                        <div class="juji">
+                        	<volist name="video['sondesc']" id="ppvodson" key='ii'><a href="{$ppvodson.playurl}" target="_blank">{$ppvodson.playname}</a></volist>
+                            <div class="clear"></div>
+                        </div>
+                        <!--剧集 结束-->
+                        <div class="clear">&nbsp;</div>
+                    </div>
+                    
+                </volist> 
+                
+                
+                
+            </div>            
+            
+            <div class="like">
+                <div id="tab" class="tab">
+                    <div class="on" title="剧情介绍" onclick="change(this)"><span>剧情介绍</span></div>
+                </div>
+                
+                <div>	
+                	<p style="padding:10px; line-height:24px;max-height:200px; overflow-y:auto; height:auto !important;">
+                    	{$content|htmlspecialchars_decode}
+                    </p>
+                </div>
+            </div>
+            
+            
+            
+            
+            
+     
+                
+                
+            
+            
+            <!--猜你喜欢 开始-->
+            <div class="like">
+                <div id="tab" class="tab">
+                    <div class="on" title="猜你喜欢" onclick="change(this)"><span>猜你喜欢</span></div>
+                </div>
+                <!--最近更新 开始-->
+                <div id="猜你喜欢" class="show">
+                    <ul class="rb2-1 list1-1" id="hot_video" href="{$webpath}index.php?s=my/show/id/hot_video/cid/{$cid}/limit/5">
+                    Loading...
+                    </ul>
+                    <div class="clear" style="height:15px;">&nbsp;</div>
+                </div>
+                <!--最近更新 结束-->
+            </div>
+            <!--猜你喜欢 结束-->
+            <!--评论 开始-->
+            <div class="pl" id="Comments">
+            
+            </div>
+            <!--评论 结束-->
+        </div>
+        <!--左边 结束-->
+        <!--右边 开始-->
+        <div class="right3">
+            <!--电视剧热播榜 开始-->
+            <div class="right1 left1-1">
+            <div class="bg">
+            	<h1><span>{$cname}热播榜</span></h1>
+                <!--热榜 开始-->
+                <ul class="ph2">
+                <gxcms name="video" cid="'.$cid.'" limit="10" order="hits desc">
+                    <li><span <if condition="$i lt 4"> class="ph1-1"<else />class="ph1-2"</if> >{$i}</span><a href="{$video.readurl}" target="_blank">{$video.title}</a><span>{$video.hits}</span></li>
+                </gxcms>   
+                    
+                </ul>
+                <!--热榜 结束-->
+            </div>
+            </div>
+            <!--电视剧热播榜 结束-->
+            <!--广告 开始-->
+            <div class="banner1">{:get_cms_ads('video_info_right_250_250')}</div>
+            <!--广告 结束-->
+            <!--广告 开始-->
+            <div class="banner1">{:get_cms_ads('video_info_right_250_250_2')}</div>
+            <!--广告 结束-->
+        </div>
+        <!--右边 结束-->
+        <div class="clear"></div>
+    </div>
+    <!--详情 结束-->
+<script type="text/javascript" src="{$webpath}views/js/jquery.js"></script>
+<script type="text/javascript" src="{$webpath}views/js/system.js"></script>
+<script type="text/javascript" src="{$tplpath}yiku.js"></script>
+    <include file="footer" />   
+</div>
+<!--wapper 结束-->
+
+</body>
+</html>

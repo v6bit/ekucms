@@ -1,0 +1,2 @@
+[ 2013-12-19T16:24:44+08:00 ] ERR: (ThinkException) Access denied for user 'root'@'localhost' (using password: YES)
+[ 2013-12-19T16:33:41+08:00 ] ERR: (ThinkException) 缓存文件写入失败！

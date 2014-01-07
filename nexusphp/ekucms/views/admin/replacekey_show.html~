@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>后台用户管理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel='stylesheet' type='text/css' href='./views/css/admin_style.css'>
+<script language="JavaScript" charset="utf-8" type="text/javascript" src="./views/js/jquery.js"></script>
+</head>
+<body class="body">
+<table width="98%" border="0" cellpadding="5" cellspacing="1" class="table">
+  <thead>
+    <tr class="list_head">
+      <th width="342" class="r" style="text-align:left; padding-left:10px">原始关键字</th>
+      <th width="666" align="left" class="r">替换关键字</th>
+      <th width="72" align="center" class="r">管理操作</th>
+    </tr>
+  </thead>
+<if condition="($treecount gt 0)"> 
+  <form action="?s=Admin-Cat-Updateall" method="post" name="myform" id="myform"> 
+  <volist name="tree" id="ppvod">
+  <tbody>
+  <tr class="tr">
+    <td class="r pd">&nbsp;&nbsp;&nbsp;&nbsp;<input type='checkbox' name='ids[]' value='{$ppvod.m_cid}' class="noborder" checked>
+    {$ppvod.firstkey}</td>
+    <td align="left">{$ppvod.endkey}</td>
+    <td class="r ct"><a href="?s=Admin/Wei/replaceKeyEdit/id/{$ppvod.id}" title="编辑">编辑</a> <a href="?s=Admin/Wei/DelReplaceKeys/id/{$ppvod.id}" onClick="return confirm('确定删除?')" title="确定删除">删除</a> </td>
+  </tr></tbody>
+  </volist>
+  </form>
+    <tr class="tr pages"><td colspan="3">{$listpages}</td></tr>
+<else />
+  <tbody>
+  <tr class="tr">
+    <td class="r pd" colspan="3" style="text-align:center; color:#F00; font-size:14px;">易酷提醒您：您还没有添加任何伪原创替换词库！ <a href="/index.php?s=Admin/Wei/replaceKeyAdd" style="color:#00F; text-decoration:underline;">我要添加</a></td>
+  </tr></tbody>
+</if>
+</table>
+<include file="./Public/system/footer.html" />
+</body>
+</html>
